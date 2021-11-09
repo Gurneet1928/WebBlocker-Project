@@ -19,7 +19,7 @@ Python is an interpreted high-level general-purpose programming language. Its de
 ***
 # Program Images
 ![Adding Webpage to database](image/addweb.png)
-![Removing Webpage from database](image/remove.png)
+![Removing Webpage from database](image/removeweb.png)
 ![About Us](image/aboutus.png)
 ![Quitting the program](image/quit.png)
 ***
