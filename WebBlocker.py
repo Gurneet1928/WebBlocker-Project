@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[12]:
+# In[14]:
 
 
 from tkinter import *
@@ -23,7 +23,7 @@ mydb = mysql.connector.connect(
 mycursor = mydb.cursor(buffered=True)
 mycursor.execute("CREATE DATABASE IF NOT EXISTS websitedb")                   #CHECK IF DATABASE EXISTS , otherwise make a new one
 mycursor.execute("CREATE TABLE IF NOT EXISTS websitedata(webnum int ,websname VARCHAR(255))")              #CHECK IF TABLE EXISTS , otherwise make a new one
-# mycursor.execute("truncate websitedata" )         #IMPORTANT FUNCTION - CAN BE USED TO CLEAR ALL THE DATA IN TABLE IF REQUIRED
+#mycursor.execute("truncate websitedata" )         #IMPORTANT FUNCTION - CAN BE USED TO CLEAR ALL THE DATA IN TABLE IF REQUIRED
 
 
 #-------WINDOW INTIALIZATION AND GLOBAL VARIABLE DECLARATION----------
@@ -33,6 +33,10 @@ window.geometry('700x500')
 wb=StringVar()
 webid=IntVar()
 k=0
+host_path = "C:\Windows\System32\drivers\etc\hosts"  
+redirect = "127.0.0.1"
+blank=" "
+nxt="\n"
 
 #-------FINDING CURRENT COUNT OF WEBSITES AND MAX VALUES----------
 mycursor.execute("SELECT MAX(webnum) FROM websitedata")
@@ -94,9 +98,20 @@ def addweb():  #Function for adding webpage in list,file & messagebox
         count+=1
         sql = "INSERT INTO websitedata (webnum,websname) VALUES (%s,%s)"
         val = webname
-        mycursor.execute(sql,(count,val,))
+        mycursor.execute(sql,(count,webname,))
         mydb.commit()
-        messagebox.showinfo("Success"," Webiste added into list !!")
+        mycursor.execute("SELECT websname from websitedata")
+        webdata=mycursor.fetchall() 
+        with open(host_path,"r+") as fileptr:  
+            content = fileptr.read()
+            weblist=list(content)
+            addweb=val  
+            if val in weblist:  
+                pass  
+            else:
+                addthis=redirect+blank+addweb+nxt
+                fileptr.write(addthis) 
+                messagebox.showinfo("Success"," Webiste added into list !!")
 
 
 #--------------MENU FOR ADDING WEBSITE--------------
@@ -125,11 +140,30 @@ def updatelist(): #Function of updating list on click of refresh button
         k=k+1
             
 def remwebs2():  #Function for removing webpages
-    sql = "DELETE FROM websitedata WHERE webnum = %s"
     val=int(webid.get())
-    mycursor.execute(sql,(val,))
-    mydb.commit()
-    messagebox.showinfo("Success"," Webiste removed from the list !!")
+    cmd="SELECT websname FROM websitedata WHERE webnum = %s"
+    mycursor.execute(cmd,(val,))
+    webdata=mycursor.fetchone()
+    if webdata is None:
+        messagebox.showinfo("Error"," Webiste does not exist in list !!")
+    else:
+        remwebname=webdata[0]
+        sql = "DELETE FROM websitedata WHERE webnum = %s"
+        mycursor.execute(sql,(val,))
+        mydb.commit()
+        remthis=redirect+blank+webdata[0]+nxt
+        with open(host_path, "r") as f:
+            lines = f.readlines()
+        with open("C:\Windows\System32\drivers\etc\host_path_temp.txt", "w") as f:
+            for line in lines:
+                if line != remthis:
+                    f.write(line)
+        with open("C:\Windows\System32\drivers\etc\host_path_temp.txt", "r") as f:
+            lines = f.readlines()
+        with open(host_path, "w") as f:
+            for line in lines:
+                f.write(line)
+        messagebox.showinfo("Success"," Webiste removed from the list !!")
 
 #-----------SEPERATE FRAME FOR DISPLAYING WEBSITES----------------
 refframe = tk.Frame(RemWeb,bg="white") 
