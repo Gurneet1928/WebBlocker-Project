@@ -39,17 +39,22 @@ blank=" "
 nxt="\n"
 
 #-------FINDING CURRENT COUNT OF WEBSITES AND MAX VALUES----------
-mycursor.execute("SELECT MAX(webnum) FROM websitedata")
-value = mycursor.fetchone()
-print(value)
-value=max(value)
-print(value)
-if value is not None:
-    count=value
-    i=value
-else:
-    count=0
-    i=0
+count=0
+i=0
+def findmax():
+    global count
+    global i
+    mycursor.execute("SELECT MAX(webnum) FROM websitedata")
+    value = mycursor.fetchone()
+    print(value)
+    value=max(value)
+    print(value)
+    if value is not None:
+        count=value
+        i=value
+    else:
+        count=0
+        i=0
 
 #-------MAKING TAB FRAME AND CONTROLS----------
 TAB_CONTROL = ttk.Notebook(window)
@@ -94,6 +99,7 @@ def addweb():  #Function for adding webpage in list,file & messagebox
     if 'www' not in webname :
         messagebox.showinfo("Failure"," Webiste format not followed !!")
     else:
+        findmax()
         global count
         count+=1
         sql = "INSERT INTO websitedata (webnum,websname) VALUES (%s,%s)"
