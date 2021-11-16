@@ -72,6 +72,8 @@ This software can be run using 3 different ways :
   - Enter the S.no of website in the entry box and click to remove.
   - Click **Refresh** again to refresh the list
 ***
+
+## .exe made with the help of auto-py-to-exe ```https://pypi.org/project/auto-py-to-exe/``` .
 ## License
 
 MIT
