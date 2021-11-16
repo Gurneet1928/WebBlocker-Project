@@ -80,3 +80,24 @@ MIT
 
 **Free Software, Good Job to me :) :)**
 ***
+
+# FAQ
+
+**Q1)** The program shows a command line in back with things like "(None,) None" or "(1,) 1" . What are these and are these necessary ? 
+**Ans)** These are just printing the current number of added websites in database and helps to keep a track of it . These are of no use to user if he only intends to use thr program for simple usage. And donot close the command line in any case.
+
+**Q2)** After opening the program , a black screen shows and the program closes itself ?
+**Ans)**  This is mainly due to MySQL Server either being not installed or server not started manually by user. Make sure to read the Installation steps carefully.
+
+**Q3)** Since this blocks websites , that means its keeping a track on me and my data . Is my data safe with it ?
+**Ans)** In any case, If you are using the original software by the developer, it won't steal any data and infact, this software runs offline as well. All your files are safe and with you. If you want to know more about how it blocks the webiste , ask the chef ( the developer ) for its secret ramen recipe.
+
+**Q4)** I am interested in supporting developer . How can I help him ?
+**Ans)** Currently , I ( the developer ) is in no condition to ask or accept any help . But I always appreciate if you share my content and **STAR** it on github . Since , I am in learning stage , I will be making more softwares in future . I mostly like to work solo , so , you won't  be able to help me currently . Anyways , thank you for you support and I would love to answer your questions or help you in your works as well. Thank you !! :))
+
+**Q5)** Is this program still under development ?
+**Ans)** The implementation of the program was easy and hence there aren't much the developer can do about its functionality at current time. But it does not mean it is dead or out of development. You can call it completed at this stage. But , If in future , any changes like design or port to other systems or etc is required , I will be back . 
+
+
+
+# Thank You for Going through my software and Helping me . Make sure to __STAR__ the project for supporting me . :) :) (～￣▽￣)～ 
