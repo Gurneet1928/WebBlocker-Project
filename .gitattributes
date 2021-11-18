@@ -1,3 +1,2 @@
-*.tcl linguist-detectable=false
 *.tcl linguist-vendored=false
 *.tcl linguist-generated=false
