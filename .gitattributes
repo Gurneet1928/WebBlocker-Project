@@ -2,4 +2,5 @@
 * text=auto
 * linguist-vendored
 *.tcl linguist-vendored=false
+*.tm linguist-vendored=false
 *.dll linguist-vendored=false
