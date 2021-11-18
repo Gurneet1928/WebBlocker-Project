@@ -1,2 +1,3 @@
+*.tcl -linguist-linguist-documentation=false
 *.tcl -linguist-vendored=false
 *.tcl -linguist-generated=false
