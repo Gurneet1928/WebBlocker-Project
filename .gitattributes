@@ -1,2 +1,3 @@
 # Auto detect text files and perform LF normalization
-*.tcl linguist-vendored=false
+* text=auto
+*.tcl linguist-detectable=false
