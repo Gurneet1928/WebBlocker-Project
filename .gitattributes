@@ -1,2 +1,2 @@
-
-*.tcl linguist-generated=false
+*.tcl -linguist-vendored=false
+*.tcl -linguist-generated=false
