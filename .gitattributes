@@ -2,3 +2,4 @@
 * text=auto
 * linguist-vendored
 *.tcl -linguist-vendored=true
+*.py -linguist-vendored=false
