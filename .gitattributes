@@ -2,3 +2,4 @@
 * text=auto
 *.py linguist-detectable
 *.ipynb linguist-detectable
+WebBlocker-MainEXE/* linguist-vendored
