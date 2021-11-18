@@ -1,2 +1,4 @@
-
-WebBlocker-MainEXE/* linguist-vendored=true
+# Auto detect text files and perform LF normalization
+* text=auto
+* linguist-vendored
+*.tcl linguist-vendored
