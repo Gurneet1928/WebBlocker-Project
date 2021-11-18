@@ -2,5 +2,3 @@
 * text=auto
 * linguist-vendored
 *.tcl linguist-detectable=false
-*.tm linguist-detectable=false
-*.dll linguist-detectable=false
