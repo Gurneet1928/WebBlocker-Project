@@ -1,6 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 * linguist-vendored
-*.tcl linguist-vendored=false
-*.tm linguist-vendored=false
-*.dll linguist-vendored=false
+*.tcl linguist-detectable=false
+*.tm linguist-detectable=false
+*.dll linguist-detectable=false
